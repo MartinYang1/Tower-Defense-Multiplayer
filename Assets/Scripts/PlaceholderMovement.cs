@@ -7,6 +7,7 @@ public class EnemyRandomMovement : MonoBehaviour
     public float moveSpeed = 3f;
     public float changeDirectionInterval = 2f;
 
+
     private float timer = 0f;
     private Vector3 randomDirection;
 
@@ -46,4 +47,24 @@ public class EnemyRandomMovement : MonoBehaviour
         // Update the position
         transform.position = clampedPosition;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision detected");
+
+        // Check if the enemy collided with a bullet
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("Enemy hit by a bullet");
+
+            // Destroy the enemy and the bullet
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
+
+
+
+
