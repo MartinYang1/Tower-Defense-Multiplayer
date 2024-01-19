@@ -20,10 +20,11 @@ public class LevelManager : MonoBehaviour {
         currency += amount;
     }
 
-    public void SpendCurrency(int amount) {
+    public bool SpendCurrency(int amount) {
         if (amount <= currency){
             // This part to add later to buy item
             currency -= amount;
+            return true;
         } else {
             Debug.Log("You do not have enough to purchase this item");
             return false;
