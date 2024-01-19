@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyRandomMovement : MonoBehaviour
 {
+    [SerializeField] private int currencyWorth = 50;
     public float moveSpeed = 3f;
     public float changeDirectionInterval = 2f;
 
@@ -57,9 +58,13 @@ public class EnemyRandomMovement : MonoBehaviour
         {
             Debug.Log("Enemy hit by a bullet");
 
+
             // Destroy the enemy and the bullet
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            
+            // Add Currency
+            LevelManager.main.IncreaseCurrency(currencyWorth);
         }
     }
 
