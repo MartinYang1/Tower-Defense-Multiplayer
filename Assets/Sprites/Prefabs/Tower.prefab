@@ -101,4 +101,4 @@ MonoBehaviour:
   shootPoint: {fileID: 9051848226720107183}
   bulletPrefab: {fileID: 6924167455437633371, guid: a3d2ec4c3a97e0c4f83e61248afcceab, type: 3}
   shootingCooldown: 2
-  detectionRadius: 10
+  detectionRadius: 15
