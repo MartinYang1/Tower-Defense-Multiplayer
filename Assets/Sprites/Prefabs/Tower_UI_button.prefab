@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920424186de3b7a439c2ee1b5a5ad1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySidebar: {fileID: 0}
+  mySidebar: {fileID: 2705431341598360727, guid: d58f9d6e23cce2c4e9967c6e3589e36a, type: 3}
   moveDistance: 3
   moveDuration: 0.5
