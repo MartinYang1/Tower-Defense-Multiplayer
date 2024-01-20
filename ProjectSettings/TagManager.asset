@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - PlacementTile
+  - TowerButton
   layers:
   - Default
   - TransparentFX
