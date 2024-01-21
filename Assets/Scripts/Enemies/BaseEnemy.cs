@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    [SerializeField]
-    private Transform waypoints;
-    private int waypointIndex = 0;
+    public Transform waypoints;
+    [HideInInspector]
+    public int waypointIndex = 0;
 
-    [SerializeField]
-    private float speed = 5f;
+    public float speed = 5f;
 
+    // Moves the enemy continuously
     IEnumerator Move()
     {
         while (waypointIndex < waypoints.childCount) 
