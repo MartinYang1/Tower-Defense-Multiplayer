@@ -15,7 +15,7 @@ public class EnemyBulletCollision : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // Notify the enemy that it has been hit
-            enemyScript.EnemyDied();
+            //enemyScript.EnemyDied();
 
             // Destroy the enemy GameObject upon collision
             Destroy(other.gameObject);

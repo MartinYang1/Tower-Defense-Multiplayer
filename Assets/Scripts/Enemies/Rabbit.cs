@@ -20,7 +20,7 @@ public class Rabbit : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
-        currencyReward = rabbitReward;  // Set the base class field
+        //currencyReward = rabbitReward;  // Set the base class field
         StartCoroutine("Move");
     }
 

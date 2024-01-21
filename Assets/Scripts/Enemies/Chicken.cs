@@ -13,7 +13,7 @@ public class Chicken : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
-        currencyReward = chickenReward;  // Set the base class field
+        //currencyReward = chickenReward;  // Set the base class field
         StartCoroutine("Move");
     }
 
