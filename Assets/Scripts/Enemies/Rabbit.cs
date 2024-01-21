@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Rabbit : BaseEnemy
 {
+    // Adjust the currency reward for Rabbit
+    [SerializeField]
+    private int rabbitReward = 5;  // Example: Rabbit gives 5 currency
+
+    // Property to access the rabbitReward
+    public int RabbitReward => rabbitReward;
     private Animator anim;
 
     void Awake() {
@@ -14,6 +20,7 @@ public class Rabbit : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
+        currencyReward = rabbitReward;  // Set the base class field
         StartCoroutine("Move");
     }
 
