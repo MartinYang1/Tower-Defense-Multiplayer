@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyBulletCollision : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object has the "Enemy" tag
@@ -12,6 +13,9 @@ public class EnemyBulletCollision : MonoBehaviour
         {
             // Destroy the enemy GameObject upon collision
             Destroy(other.gameObject);
+
+            
+
 
             // Destroy the bullet GameObject as well
             Destroy(gameObject);
