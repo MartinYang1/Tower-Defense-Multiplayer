@@ -20,7 +20,7 @@ public class BaseEnemy : MonoBehaviour
             Transform nextWaypoint = waypoints.GetChild(waypointIndex);
 
             float timeElapsed = 0;
-            float duration = Vector2.Distance(currWaypoint.transform.position, nextWaypoint.transform.position);
+            float duration = Vector2.Distance(currWaypoint.transform.position, nextWaypoint.transform.position) / speed;
             while (timeElapsed < duration)
             {
                 transform.position = Vector2.Lerp(currWaypoint.transform.position, nextWaypoint.transform.position, timeElapsed / duration);

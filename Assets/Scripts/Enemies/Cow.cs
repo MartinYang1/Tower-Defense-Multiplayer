@@ -8,7 +8,6 @@ public class Cow : BaseEnemy
     void Start()
     {
         StartCoroutine("Move");
-        print("HI");
     }
 
     // Update is called once per frame
