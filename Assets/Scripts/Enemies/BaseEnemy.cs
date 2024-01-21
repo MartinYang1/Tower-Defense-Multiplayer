@@ -8,7 +8,8 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public int waypointIndex = 0;
 
-    public float speed = 5f;
+    [SerializeField]
+    private float speed = 5f;
 
     // Moves the enemy continuously
     IEnumerator Move()
@@ -29,6 +30,14 @@ public class BaseEnemy : MonoBehaviour
             }
         }
         
+    }
+
+    public float GetSpeed() {
+        return speed;
+    }
+
+    public void ChangeSpeed(float speed) {
+        this.speed = speed;
     }
 
 }
