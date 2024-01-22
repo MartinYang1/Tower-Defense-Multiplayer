@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &176713527895380035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3099961802273355829}
+  - component: {fileID: 2713257117129578439}
+  - component: {fileID: 8898503345573856047}
+  - component: {fileID: 2256443369614160456}
+  - component: {fileID: 641231489685578220}
+  m_Layer: 0
+  m_Name: GameLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3099961802273355829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176713527895380035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3301296, y: 1.7426763, z: -0.0123941135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2713257117129578439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176713527895380035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af506430aac1ef644853fad251ec9fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 0}
+--- !u!114 &8898503345573856047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176713527895380035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6872e44280cf40ecbb6f82fe77a9ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currency: 1000
+--- !u!114 &2256443369614160456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176713527895380035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42a5793fa00149edb7b892529109be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyUI: {fileID: 0}
+--- !u!114 &641231489685578220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176713527895380035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813e5a2269cd1534b88fc143820ec418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerTypes:
+  - prefab: {fileID: 6388902841555546499, guid: 396c6fc6bd38f404084e9361eeb21e34, type: 3}
+    cost: 50
+  - prefab: {fileID: 6388902841555546499, guid: b9118180945ba0a429ef8e1cd4a22402, type: 3}
+    cost: 75
+  levelManager: {fileID: 8898503345573856047}
+  UIPrefab1: {fileID: 4417008502257055598, guid: 0a27f7730e44b664b82df4bba3f74b27, type: 3}
+  UIPrefab2: {fileID: 4417008502257055598, guid: e4f9bd5bf99dc374db7e30901c848ddd, type: 3}
+  uiPrefabOffset: {x: 7.5, y: 5, z: 0}

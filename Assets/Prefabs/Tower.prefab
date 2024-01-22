@@ -216,6 +216,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6924167455437633371, guid: 379416f471f0ab04d95a2d396398c65b, type: 3}
   shootingCooldown: 0.4
   detectionRadius: 15
+  turretDamage: 100
 --- !u!1 &6388902841555546499
 GameObject:
   m_ObjectHideFlags: 0
