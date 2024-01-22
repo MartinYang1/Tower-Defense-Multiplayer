@@ -11,6 +11,7 @@ using UnityEngine;
 public class GameUI : MonoBehaviour
 {
     public Spawner spawner;
+    public Canvas canvas;
     
     // Start is called before the first frame update
     void Start()

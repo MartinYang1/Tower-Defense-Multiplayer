@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -14,7 +16,16 @@ public class BaseEnemy : MonoBehaviour
     private float speed = 5f;
 
     [SerializeField]
-    private float health = 5f;
+    private float initialHealth = 5f;
+    private float health;
+    [SerializeField]
+    private GameObject healthBarReference;
+    [HideInInspector]
+    //public GameObject healthBar;
+
+    protected virtual void Awake() {
+        health = initialHealth;
+    }
 
     // Moves the enemy continuously
     IEnumerator Move()
@@ -60,8 +71,14 @@ public class BaseEnemy : MonoBehaviour
     /// <param name="health">hitpoints to be decreased by</param>
     public void Hit(float health) {
         this.health -= health;
+        Debug.Log(this.health/this.initialHealth);
+        transform.GetChild(0).GetComponent<Slider>().value = this.health / this.initialHealth;
         if (this.health <= 0)
             Destroy(gameObject);
+    }
+
+    public GameObject GetHealthBarReference() {
+        return healthBarReference;
     }
 
 }

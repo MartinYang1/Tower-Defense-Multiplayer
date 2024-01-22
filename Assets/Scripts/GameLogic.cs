@@ -12,5 +12,11 @@ public class GameLogic : MonoBehaviour
 
     [HideInInspector]
     public GameUI gameUI;
+
+    void Awake() {
+        if (!instance)
+            instance = this;
+        gameUI = GameObject.FindObjectOfType<GameUI>();
+    }
     
 }
