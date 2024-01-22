@@ -50,9 +50,15 @@ TagManager:
   - name: Enemies
     uniqueID: 624564335
     locked: 0
+  - name: Environment
+    uniqueID: 4181621869
+    locked: 0
   - name: Towers
     uniqueID: 4268984527
     locked: 0
   - name: Projectiles
     uniqueID: 3216967479
+    locked: 0
+  - name: UI
+    uniqueID: 359743519
     locked: 0
