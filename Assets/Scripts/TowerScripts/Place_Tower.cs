@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlacementTile : MonoBehaviour
 {
+    public int towerCost = 50; // Tower cost variable that can be set in the inspector
     private static GameObject selectedTowerPrefab; // Reference to the selected tower prefab
 
     void Update()
@@ -21,24 +22,31 @@ public class PlacementTile : MonoBehaviour
                 if (hit.collider.CompareTag("PlacementTile"))
                 {
                     // Place the selected tower at the clicked tile
-                    PlaceTower(hit.collider.gameObject.transform.position);
+                    TryPlaceTower(hit.collider.gameObject.transform.position);
                 }
             }
         }
     }
 
-    public static void SetSelectedTower(GameObject towerPrefab)
+    public void SetSelectedTower(GameObject towerPrefab)
     {
         selectedTowerPrefab = towerPrefab;
     }
 
-    void PlaceTower(Vector3 position)
+    void TryPlaceTower(Vector3 position)
     {
         // Check if a tower prefab is selected
         if (selectedTowerPrefab != null)
         {
-            // Instantiate the selected tower at the clicked position
-            Instantiate(selectedTowerPrefab, position, Quaternion.identity);
+            // Get the LevelManager instance
+            LevelManager levelManager = LevelManager.main;
+
+            // Check if the player has enough currency to place the tower
+            if (levelManager.CanAfford(towerCost))
+            {
+                // Instantiate the selected tower at the clicked position
+                Instantiate(selectedTowerPrefab, position, Quaternion.identity);
+            }
         }
     }
 }

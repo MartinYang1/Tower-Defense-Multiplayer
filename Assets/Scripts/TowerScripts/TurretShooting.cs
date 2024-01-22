@@ -10,6 +10,7 @@ public class RotateAndShoot : MonoBehaviour
     public float shootingCooldown = 2f;
     public float detectionRadius = 5f;
 
+    private List<Transform> enemiesInRadius = new List<Transform>();
     private Transform currentTarget;
     private float shootingTimer = 0f;
 
@@ -23,18 +24,49 @@ public class RotateAndShoot : MonoBehaviour
 
     private void CheckForEnemies()
     {
+        // Clear the list of enemies in the radius
+        enemiesInRadius.Clear();
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
         foreach (var collider in colliders)
         {
             if (collider.CompareTag("Enemy"))
             {
-                currentTarget = collider.transform;
-                return;
+                enemiesInRadius.Add(collider.transform);
             }
         }
 
-        currentTarget = null;
+        // Sort the enemies by time alive in descending order
+        enemiesInRadius.Sort((a, b) =>
+        {
+            float timeAliveA = GetEnemyTimeAlive(a);
+            float timeAliveB = GetEnemyTimeAlive(b);
+
+            Debug.Log($"Time Alive A: {timeAliveA}, Time Alive B: {timeAliveB}");
+
+            return timeAliveB.CompareTo(timeAliveA);
+        });
+
+        // Set the current target to the enemy with the longest time alive
+        currentTarget = (enemiesInRadius.Count > 0) ? enemiesInRadius[0] : null;
+
+        if (currentTarget != null)
+        {
+            Debug.Log($"Targeting Enemy: {currentTarget.name}, Time Alive: {GetEnemyTimeAlive(currentTarget)}");
+        }
+        else
+        {
+            Debug.Log("No enemies in radius.");
+        }
+    }
+
+
+
+    private float GetEnemyTimeAlive(Transform enemyTransform)
+    {
+        EnemyTimeAlive enemyTimeAlive = enemyTransform.GetComponent<EnemyTimeAlive>();
+        return (enemyTimeAlive != null) ? enemyTimeAlive.GetTimeAlive() : 0f;
     }
 
     private void RotateTowardsTarget()

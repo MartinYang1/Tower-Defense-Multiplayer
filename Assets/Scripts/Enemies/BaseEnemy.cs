@@ -40,6 +40,7 @@ public class BaseEnemy : MonoBehaviour
         LevelManager.main.IncreaseCurrency(currencyReward); // Adjust the amount as needed
     }
 
+
     public float GetSpeed() {
         return speed;
     }
