@@ -24,15 +24,9 @@ public class Bullet : MonoBehaviour
             BaseEnemy enemyScript = other.GetComponent<BaseEnemy>();
             Debug.Log("Bullet dealt" + bulletDamage + "damage");
 
-            // Notify the enemy that it has been hit with damage
-            if (enemyScript != null)
-            {
-                // Log the damage dealt
-                
-
-                // Apply damage to the enemy
-                //enemyScript.TakeDamage(bulletDamage);
-            }
+            // Decrement enemy health
+            if (enemyScript)
+                enemyScript.Hit(bulletDamage);
 
             // Destroy the bullet GameObject upon collision
             Destroy(gameObject);

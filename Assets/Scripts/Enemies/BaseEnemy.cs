@@ -34,6 +34,7 @@ public class BaseEnemy : MonoBehaviour
                 yield return null;
             }
         }
+        Destroy(gameObject);
         
     }
     // Method to handle enemy death
@@ -43,6 +44,7 @@ public class BaseEnemy : MonoBehaviour
         LevelManager.main.IncreaseCurrency(currencyReward); // Adjust the amount as needed
     }
 
+    // Getters and setters
 
     public float GetSpeed() {
         return speed;
@@ -50,6 +52,16 @@ public class BaseEnemy : MonoBehaviour
 
     public void ChangeSpeed(float speed) {
         this.speed = speed;
+    }
+
+    /// <summary>
+    /// Decrements health from an enemy
+    /// </summary>
+    /// <param name="health">hitpoints to be decreased by</param>
+    public void Hit(float health) {
+        this.health -= health;
+        if (this.health <= 0)
+            Destroy(gameObject);
     }
 
 }
