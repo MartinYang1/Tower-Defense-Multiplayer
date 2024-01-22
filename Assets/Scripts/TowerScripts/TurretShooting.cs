@@ -10,6 +10,9 @@ public class RotateAndShoot : MonoBehaviour
     public float shootingCooldown = 2f;
     public float detectionRadius = 5f;
 
+    [SerializeField]
+    public float turretDamage = 10f;
+
     private List<Transform> enemiesInRadius = new List<Transform>();
     private Transform currentTarget;
     private float shootingTimer = 0f;
@@ -43,7 +46,7 @@ public class RotateAndShoot : MonoBehaviour
             float timeAliveA = GetEnemyTimeAlive(a);
             float timeAliveB = GetEnemyTimeAlive(b);
 
-            Debug.Log($"Time Alive A: {timeAliveA}, Time Alive B: {timeAliveB}");
+           
 
             return timeAliveB.CompareTo(timeAliveA);
         });
@@ -53,7 +56,7 @@ public class RotateAndShoot : MonoBehaviour
 
         if (currentTarget != null)
         {
-            Debug.Log($"Targeting Enemy: {currentTarget.name}, Time Alive: {GetEnemyTimeAlive(currentTarget)}");
+        
         }
         else
         {
@@ -100,9 +103,18 @@ public class RotateAndShoot : MonoBehaviour
             Vector2 direction = currentTarget.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+            // Instantiate the bullet
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.Euler(0f, 0f, angle));
-            // Adjust any bullet properties or behaviors as needed
-            // For example, you might want to set the target for homing bullets.
+
+            // Access the Bullet script (assuming you have a script named Bullet attached to the bulletPrefab)
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+            // Check if the script exists before setting the damage
+            if (bulletScript != null)
+            {
+                // Set the bullet damage based on the turret's damage
+                bulletScript.SetBulletDamage(turretDamage);
+            }
         }
     }
 

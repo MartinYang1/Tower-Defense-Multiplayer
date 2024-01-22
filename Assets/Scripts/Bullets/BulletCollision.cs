@@ -2,25 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class EnemyBulletCollision : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
+    private float bulletDamage = 0f;
+
+    // Set the bullet damage
+    public void SetBulletDamage(float damage)
+    {
+        bulletDamage = damage;
+        Debug.Log("Bullet dealt" + bulletDamage + "damage");
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Get the enemy script
-        BaseEnemy enemyScript = other.GetComponent<BaseEnemy>();
+        Debug.Log("OnTriggerEnter2D called");
 
         // Check if the collided object has the "Enemy" tag
         if (other.CompareTag("Enemy"))
         {
-            // Notify the enemy that it has been hit
-            //enemyScript.EnemyDied();
+            // Get the enemy script
+            BaseEnemy enemyScript = other.GetComponent<BaseEnemy>();
+            Debug.Log("Bullet dealt" + bulletDamage + "damage");
 
-            // Destroy the enemy GameObject upon collision
-            Destroy(other.gameObject);
+            // Notify the enemy that it has been hit with damage
+            if (enemyScript != null)
+            {
+                // Log the damage dealt
+                
 
-            // Destroy the bullet GameObject as well
+                // Apply damage to the enemy
+                //enemyScript.TakeDamage(bulletDamage);
+            }
+
+            // Destroy the bullet GameObject upon collision
             Destroy(gameObject);
         }
     }
