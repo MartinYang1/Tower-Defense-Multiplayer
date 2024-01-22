@@ -13,6 +13,9 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
 
+    [SerializeField]
+    private float health = 5f;
+
     // Moves the enemy continuously
     IEnumerator Move()
     {
