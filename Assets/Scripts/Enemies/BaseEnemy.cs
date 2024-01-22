@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
+    [SerializeField] private int currencyReward = 10; // Default base value for money per enemy
+    public int CurrencyReward => currencyReward;
     public Transform waypoints;
     [HideInInspector]
     public int waypointIndex = 0;
 
-    public float speed = 5f;
+    [SerializeField]
+    private float speed = 5f;
 
     // Moves the enemy continuously
     IEnumerator Move()
@@ -29,6 +32,20 @@ public class BaseEnemy : MonoBehaviour
             }
         }
         
+    }
+    // Method to handle enemy death
+    protected virtual void EnemyDied()
+    {
+        // Notify LevelManager to increase currency
+        LevelManager.main.IncreaseCurrency(currencyReward); // Adjust the amount as needed
+    }
+
+    public float GetSpeed() {
+        return speed;
+    }
+
+    public void ChangeSpeed(float speed) {
+        this.speed = speed;
     }
 
 }

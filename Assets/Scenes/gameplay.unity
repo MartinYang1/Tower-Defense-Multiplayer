@@ -2451,6 +2451,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 600230515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1016257213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016257215}
+  - component: {fileID: 1016257214}
+  m_Layer: 0
+  m_Name: GameLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1016257214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016257213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af506430aac1ef644853fad251ec9fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 0}
+--- !u!4 &1016257215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016257213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3301296, y: 1.7426763, z: -0.0123941135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030384110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466349808}
   - component: {fileID: 1466349807}
+  - component: {fileID: 1466349809}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2771,6 +2817,19 @@ Transform:
   - {fileID: 83370956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1466349809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466349806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef724d79b02cc24eb7bd0e73f975aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1030384111}
 --- !u!4 &1612785563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659155308162306750, guid: 1de3aae4c6cc8d04e895a5867721d240, type: 3}
@@ -3133,3 +3192,4 @@ SceneRoots:
   - {fileID: 1466349808}
   - {fileID: 1030384112}
   - {fileID: 1977079961}
+  - {fileID: 1016257215}

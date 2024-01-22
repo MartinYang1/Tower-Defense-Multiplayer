@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Rabbit : BaseEnemy
 {
+    // Adjust the currency reward for Rabbit
+    [SerializeField]
+    private int rabbitReward = 5;  // Example: Rabbit gives 5 currency
+
+    // Property to access the rabbitReward
+    public int RabbitReward => rabbitReward;
     private Animator anim;
 
     void Awake() {
@@ -14,6 +20,7 @@ public class Rabbit : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
+        //currencyReward = rabbitReward;  // Set the base class field
         StartCoroutine("Move");
     }
 
@@ -25,15 +32,16 @@ public class Rabbit : BaseEnemy
 
     private IEnumerator Move()
     {
-        while (waypointIndex < waypoints.childCount) 
+        while (waypointIndex < waypoints.childCount - 1) 
         {
             Transform currWaypoint = waypoints.GetChild(waypointIndex);
             waypointIndex++;
             Transform nextWaypoint = waypoints.GetChild(waypointIndex);
+
             anim.SetInteger("MoveDirection", getDirection(currWaypoint, nextWaypoint));
-            
+
             float timeElapsed = 0;
-            float duration = Vector2.Distance(currWaypoint.transform.position, nextWaypoint.transform.position) / speed;
+            float duration = Vector2.Distance(currWaypoint.transform.position, nextWaypoint.transform.position) / GetSpeed();
             while (timeElapsed < duration)
             {
                 transform.position = Vector2.Lerp(currWaypoint.transform.position, nextWaypoint.transform.position, timeElapsed / duration);
@@ -41,7 +49,7 @@ public class Rabbit : BaseEnemy
                 yield return null;
             }
         }
-        
+        Destroy(gameObject);
     }
 
     // Returns the direction the rabbit should move once it
