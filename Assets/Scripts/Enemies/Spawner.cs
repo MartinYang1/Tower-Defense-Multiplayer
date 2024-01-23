@@ -14,11 +14,13 @@ public class Spawner : MonoBehaviour
     private int numEnemies;
 
     private IEnumerator SpawnRabbit() {
+        yield return new WaitForSeconds(3);
         for (int i = 0; i < numEnemies; ++i){
             GameObject enemy = Instantiate(enemiesReference[0]);
             enemy.SetActive(true);
             yield return new WaitForSeconds(spawnDelay);
         }
+        yield return new WaitForSeconds(5);
         StartNewRound();
     }
 
@@ -36,7 +38,7 @@ public class Spawner : MonoBehaviour
         
     }
 
-    void StartNewRound() {
+    private IEnumerator StartNewRound() {
         StartCoroutine(SpawnRabbit());
         spawnDelay /= scalingFactor * 1.5f;
         numEnemies = (int)(numEnemies * (2 * scalingFactor));
