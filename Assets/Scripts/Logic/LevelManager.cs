@@ -7,16 +7,32 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     public int currency;
-    private int roundNumber = 0;
+    private int roundNumber = 1;
 
     private void Awake()
     {
         instance = this;
     }
 
+    void OnEnable() {
+        Spawner.roundOverInfo += EndRound;
+    }
+
+     void OnDisable() {
+        Spawner.roundOverInfo -= EndRound;
+    }
+
+    void EndRound() {
+        // do these
+        roundNumber++;
+        GameLogic.instance.gameUI.spawner.StartNewRound();
+        IncreaseCurrency(200);
+
+    }
     private void Start()
     {
         currency = 2000;
+        GameLogic.instance.gameUI.spawner.StartNewRound();
     }
     public void IncreaseCurrency(int amount)
     {
@@ -41,5 +57,5 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
+
 }

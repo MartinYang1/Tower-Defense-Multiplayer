@@ -60,7 +60,6 @@ public class RotateAndShoot : MonoBehaviour
         }
         else
         {
-            Debug.Log("No enemies in radius.");
         }
     }
 

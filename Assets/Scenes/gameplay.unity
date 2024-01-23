@@ -4297,7 +4297,7 @@ MonoBehaviour:
   - {fileID: 1516118869}
   spawnDelay: 3
   scalingFactor: 1.2
-  numEnemies: 5
+  numEnemies: 2
 --- !u!4 &1030384112
 Transform:
   m_ObjectHideFlags: 0
