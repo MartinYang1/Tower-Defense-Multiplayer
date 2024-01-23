@@ -21,19 +21,10 @@ public class Rabbit : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
-        transform.SetParent(GameLogic.instance.gameUI.canvas.transform);
+        transform.SetParent(GameLogic.instance.gameUI.spawner.transform);
 
         //currencyReward = rabbitReward;  // Set the base class field
-        //healthBar = Instantiate(GetHealthBarReference());
         StartCoroutine("Move");
-        StartCoroutine(hi());
-    }
-
-    private IEnumerator hi() {
-        while (true) {
-                    Hit(1);
-        yield return new WaitForSeconds(2);
-        }
     }
 
     // Update is called once per frame

@@ -21,7 +21,6 @@ public class BaseEnemy : MonoBehaviour
     [SerializeField]
     private GameObject healthBarReference;
     [HideInInspector]
-    //public GameObject healthBar;
 
     protected virtual void Awake() {
         health = initialHealth;

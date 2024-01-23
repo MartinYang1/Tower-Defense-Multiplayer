@@ -18,15 +18,14 @@ public class Bullet : MonoBehaviour
         Debug.Log("OnTriggerEnter2D called");
 
         // Check if the collided object has the "Enemy" tag
-        if (other.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             // Get the enemy script
-            BaseEnemy enemyScript = other.GetComponent<BaseEnemy>();
+            BaseEnemy enemyScript = other.gameObject.GetComponent<BaseEnemy>();
             Debug.Log("Bullet dealt" + bulletDamage + "damage");
-
+            print("HIU");
             // Decrement enemy health
-            if (enemyScript)
-                enemyScript.Hit(bulletDamage);
+            enemyScript.Hit(bulletDamage);
 
             // Destroy the bullet GameObject upon collision
             Destroy(gameObject);
