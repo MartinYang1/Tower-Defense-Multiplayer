@@ -68,12 +68,17 @@ public class BaseEnemy : MonoBehaviour
     /// Decrements health from an enemy
     /// </summary>
     /// <param name="health">hitpoints to be decreased by</param>
-    public void Hit(float health) {
-        this.health -= health;
-        Debug.Log(this.health/this.initialHealth);
+    public void Hit(float damage)
+    {
+        this.health -= damage;
+
         transform.GetChild(0).GetComponent<Slider>().value = this.health / this.initialHealth;
+
         if (this.health <= 0)
+        {
+            EnemyDied();
             Destroy(gameObject);
+        }
     }
 
     public GameObject GetHealthBarReference() {
