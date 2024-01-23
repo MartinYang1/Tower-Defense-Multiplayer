@@ -110,14 +110,14 @@ public class TowerPlacement : MonoBehaviour
         if (towerPrefab != null)
         {
             Instantiate(towerPrefab, position, Quaternion.identity);
-            Debug.Log("Placed Tower: " + towerPrefab.name + " at " + position);
+            
 
             // Update the UI prefab based on the tower selection mode
             SetUIPrefab();
         }
         else
         {
-            Debug.LogWarning("No tower selected!");
+           
         }
     }
 
@@ -126,7 +126,7 @@ public class TowerPlacement : MonoBehaviour
         if (IsValidTowerIndex(towerIndex))
         {
             selectedTower = towerTypes[towerIndex].prefab;
-            Debug.Log("Selected Tower: " + selectedTower.name);
+            
 
             // Update the UI prefab based on the tower selection mode
             SetUIPrefab();
@@ -137,7 +137,7 @@ public class TowerPlacement : MonoBehaviour
     {
         if (towerIndex < 0 || towerIndex >= towerTypes.Length)
         {
-            Debug.LogWarning("Invalid tower index: " + towerIndex);
+            
             return false;
         }
 

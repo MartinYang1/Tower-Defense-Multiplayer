@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3456105158780550731}
   m_Layer: 0
   m_Name: ShootPoint
-  m_TagString: Untagged
+  m_TagString: ShootPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,10 +213,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 5
   shootPoint: {fileID: 734828608413964684}
-  bulletPrefab: {fileID: 6924167455437633371, guid: 379416f471f0ab04d95a2d396398c65b, type: 3}
-  shootingCooldown: 0.4
-  detectionRadius: 15
-  turretDamage: 100
+  bulletPrefab: {fileID: 7961827647226697523, guid: 578a0aed0700fef42a431a181d1dc6a9, type: 3}
+  shootingCooldown: 0.5
+  detectionRadius: 3
+  turretDamage: 1
 --- !u!1 &6388902841555546499
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +228,9 @@ GameObject:
   - component: {fileID: 6470555946876148365}
   - component: {fileID: 9181878046949808616}
   - component: {fileID: -331477186059600920}
+  - component: {fileID: 3948847355032309812}
+  - component: {fileID: 3976819121519644847}
+  - component: {fileID: 6755425625425920966}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -400,3 +403,80 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &3948847355032309812
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388902841555546499}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 2}
+  m_EdgeRadius: 0
+--- !u!114 &3976819121519644847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388902841555546499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3739ba32069998f4e9f9885df2b6a25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRateUpgradeCost: 15
+  damageUpgradeCost: 15
+  fireRateMultiplier: 0.8
+  damageMultiplier: 1
+  cost_scale: 1.5
+  displayDuration: 2
+--- !u!114 &6755425625425920966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388902841555546499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3652e04a86a7647a201093c33cc612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSize: 0.5
+  upgradeCost: 50

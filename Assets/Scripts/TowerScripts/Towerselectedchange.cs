@@ -10,11 +10,11 @@ public class TowerButton : MonoBehaviour
         if (towerPlacement != null)
         {
             towerPlacement.SelectTower(towerIndex);
-            Debug.Log("TowerButton Clicked. Selected Tower Index: " + towerIndex);
+            
         }
         else
         {
-            Debug.LogWarning("TowerPlacement script is not assigned!");
+            
         }
     }
 }

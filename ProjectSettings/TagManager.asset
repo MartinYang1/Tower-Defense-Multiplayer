@@ -10,6 +10,7 @@ TagManager:
   - TowerButton
   - Tower
   - Button
+  - ShootPoint
   layers:
   - Default
   - TransparentFX

@@ -60,6 +60,7 @@ public class RotateAndShoot : MonoBehaviour
         }
         else
         {
+           
         }
     }
 
@@ -103,19 +104,24 @@ public class RotateAndShoot : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // Instantiate the bullet
-            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.Euler(0f, 0f, angle));
+            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
 
             // Access the Bullet script (assuming you have a script named Bullet attached to the bulletPrefab)
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            BulletMovement bulletScript = bullet.GetComponent<BulletMovement>();
+            Bullet bulletScript1 = bullet.GetComponent<Bullet>();
 
-            // Check if the script exists before setting the damage
+            // Check if the script exists before setting the damage and direction
             if (bulletScript != null)
             {
                 // Set the bullet damage based on the turret's damage
-                bulletScript.SetBulletDamage(turretDamage);
+                bulletScript1.SetBulletDamage(turretDamage);
+
+                // Set the bullet's movement direction and rotation
+                bulletScript.SetBulletDirection(direction.normalized);
             }
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {
