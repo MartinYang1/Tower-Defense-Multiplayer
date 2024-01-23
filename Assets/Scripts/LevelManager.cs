@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(currency);
+        
     }
     public void IncreaseCurrency(int amount)
     {
