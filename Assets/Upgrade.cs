@@ -94,7 +94,7 @@ public class TowerUpgrade : MonoBehaviour
             {
                 float newCooldown = turretScript.shootingCooldown * fireRateMultiplier;
                 turretScript.shootingCooldown = Mathf.Max(newCooldown, 0.1f); // Ensure cooldown doesn't go below a certain value
-                fireRateUpgradeCost = Mathf.RoundToInt(fireRateUpgradeCost * 1.5f);
+                fireRateUpgradeCost = Mathf.RoundToInt(fireRateUpgradeCost * 2f);
             }
         }
     }
@@ -110,7 +110,7 @@ public class TowerUpgrade : MonoBehaviour
             {
                 float newDamage = turretScript.turretDamage * damageMultiplier;
                 turretScript.turretDamage = newDamage;
-                damageUpgradeCost = Mathf.RoundToInt(damageUpgradeCost * 1.5f);
+                damageUpgradeCost = Mathf.RoundToInt(damageUpgradeCost * 2f);
             }
         }
     }

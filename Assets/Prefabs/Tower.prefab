@@ -215,7 +215,7 @@ MonoBehaviour:
   shootPoint: {fileID: 734828608413964684}
   bulletPrefab: {fileID: 7961827647226697523, guid: 578a0aed0700fef42a431a181d1dc6a9, type: 3}
   shootingCooldown: 0.5
-  detectionRadius: 4
+  detectionRadius: 3
   turretDamage: 1
 --- !u!1 &6388902841555546499
 GameObject:

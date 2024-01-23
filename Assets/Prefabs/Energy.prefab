@@ -189,4 +189,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceee1978253749e41a20486fc5d01f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashRadius: 2.5
+  splashRadius: 1.5
