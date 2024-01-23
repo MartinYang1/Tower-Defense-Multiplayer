@@ -51,7 +51,7 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void EnemyDied()
     {
         // Notify LevelManager to increase currency
-        LevelManager.main.IncreaseCurrency(currencyReward); // Adjust the amount as needed
+        LevelManager.instance.IncreaseCurrency(currencyReward); // Adjust the amount as needed
     }
 
     // Getters and setters

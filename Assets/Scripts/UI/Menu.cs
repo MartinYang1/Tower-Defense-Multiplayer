@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI currencyUI;
 
     private void OnGUI() {
-        currencyUI.text = LevelManager.main.currency.ToString();
+        currencyUI.text = LevelManager.instance.currency.ToString();
     }
 
 

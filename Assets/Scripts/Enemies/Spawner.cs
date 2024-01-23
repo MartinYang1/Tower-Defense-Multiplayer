@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
         
     }
 
-    private IEnumerator StartNewRound() {
+    private void StartNewRound() {
         StartCoroutine(SpawnRabbit());
         spawnDelay /= scalingFactor * 1.5f;
         numEnemies = (int)(numEnemies * (2 * scalingFactor));

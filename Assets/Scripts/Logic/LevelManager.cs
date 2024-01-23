@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager main;
+    public static LevelManager instance;
 
     public int currency;
+    private int roundNumber = 0;
 
     private void Awake()
     {
-        main = this;
+        instance = this;
     }
 
     private void Start()
@@ -39,4 +40,6 @@ public class LevelManager : MonoBehaviour
             Debug.Log("You do not have enough to purchase this item");
         }
     }
+
+    
 }
