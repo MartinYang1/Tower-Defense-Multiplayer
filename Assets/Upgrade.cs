@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class TowerUpgrade : MonoBehaviour
 {
-    public int fireRateUpgradeCost = 10;
-    public int damageUpgradeCost = 15;
+    public int fireRateUpgradeCost = 0;
+    public int damageUpgradeCost = 0;
 
     public float fireRateMultiplier = 0.8f;
     public float damageMultiplier = 1.2f;
-    public float cost_scale = 2f;
+    public float cost_scale = 4f;
 
     public float displayDuration = 2f;
 
@@ -24,15 +24,17 @@ public class TowerUpgrade : MonoBehaviour
 
     private void Update()
     {
-        CheckForClick();
+       
         towerLevelText.upgradeCost = fireRateUpgradeCost + damageUpgradeCost;
+        CheckForClick();
+
     }
     private void UpdateUpgradeCostDisplay()
     {
         if (towerLevelText != null)
         {
             towerLevelText.upgradeCost = fireRateUpgradeCost + damageUpgradeCost;
-            towerLevelText.ShowLevelText(displayDuration);
+            
         }
     }
 
@@ -60,17 +62,18 @@ public class TowerUpgrade : MonoBehaviour
             // Deduct the cost from the player's currency before upgrading
             LevelManager.main.SpendCurrency(fireRateUpgradeCost + damageUpgradeCost);
 
+            UpdateUpgradeCostDisplay();
             // Upgrade fire rate
             UpgradeFireRate();
 
             // Upgrade damage
             UpgradeDamage();
 
+
             // Display tower level text only if the upgrade was successful
             ShowLevelText();
 
-            // Update the upgrade cost display in TowerLevelText script
-            UpdateUpgradeCostDisplay();
+
         }
         else
         {
@@ -91,7 +94,7 @@ public class TowerUpgrade : MonoBehaviour
             {
                 float newCooldown = turretScript.shootingCooldown * fireRateMultiplier;
                 turretScript.shootingCooldown = Mathf.Max(newCooldown, 0.1f); // Ensure cooldown doesn't go below a certain value
-                fireRateUpgradeCost = Mathf.RoundToInt(fireRateUpgradeCost * cost_scale);
+                fireRateUpgradeCost = Mathf.RoundToInt(fireRateUpgradeCost * 1.5f);
             }
         }
     }
@@ -107,7 +110,7 @@ public class TowerUpgrade : MonoBehaviour
             {
                 float newDamage = turretScript.turretDamage * damageMultiplier;
                 turretScript.turretDamage = newDamage;
-                damageUpgradeCost = Mathf.RoundToInt(damageUpgradeCost * cost_scale);
+                damageUpgradeCost = Mathf.RoundToInt(damageUpgradeCost * 1.5f);
             }
         }
     }
@@ -118,6 +121,8 @@ public class TowerUpgrade : MonoBehaviour
 
         // Check if the TowerLevelText script is attached
         TowerLevelText towerLevelText = GetComponent<TowerLevelText>();
+
+        towerLevelText.upgradeCost = fireRateUpgradeCost + damageUpgradeCost;
         if (towerLevelText != null)
         {
             // Display tower level text

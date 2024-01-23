@@ -18,6 +18,7 @@ public class TowerLevelText : MonoBehaviour
         // Ensure the text objects are created and initialized
         CreateLevelTextObject();
         CreateUpgradeCostObject();
+        ShowLevelText(0);
     }
 
     private void CreateLevelTextObject()
@@ -79,7 +80,7 @@ public class TowerLevelText : MonoBehaviour
         upgradeCostObject.SetActive(true);
 
         // Increment the update count
-        updateCount++;
+        updateCount ++;
 
         // Set the text to indicate the tower's update count
         textMesh.GetComponent<Renderer>().sortingLayerName = "UI";
