@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
 
-    public int currency;
+    private int currency;
     private int roundNumber = 1;
 
     private void Awake()
@@ -47,15 +47,13 @@ public class LevelManager : MonoBehaviour
     public void SpendCurrency(int amount)
     {
         if (CanAfford(amount))
-        {
             currency -= amount;
-            // Add logic here to handle the actual purchase or item acquisition
-        }
-        else
-        {
-            Debug.Log("You do not have enough to purchase this item");
-        }
+
     }
 
+    // Getters and setters
+    public int GetCurrency() {
+        return currency;
+    }
 
 }

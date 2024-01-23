@@ -44,7 +44,9 @@ public class BaseEnemy : MonoBehaviour
                 yield return null;
             }
         }
+        // enemy has walked off the map
         Destroy(gameObject);
+        GameLogic.instance.numLives--;
         
     }
     // Method to handle enemy death
