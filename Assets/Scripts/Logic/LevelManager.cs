@@ -56,4 +56,8 @@ public class LevelManager : MonoBehaviour
         return currency;
     }
 
+    public int GetRound() {
+        return roundNumber;
+    }
+
 }

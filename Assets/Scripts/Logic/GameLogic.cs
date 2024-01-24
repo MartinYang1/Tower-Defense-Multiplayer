@@ -12,6 +12,7 @@ public class GameLogic : MonoBehaviour
 
     [HideInInspector]
     public GameUI gameUI;
+    [HideInInspector]
     public LevelManager levelManager;
 
     public int numLives = 100;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -12,6 +13,9 @@ public class GameUI : MonoBehaviour
 {
     public Spawner spawner;
     public Canvas canvas;
+
+    [SerializeField]
+    private TextMeshProUGUI livesText, roundText, currencyText;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,10 @@ public class GameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currencyText.text = "Currency: " +
+        GameLogic.instance.levelManager.GetCurrency().ToString();  
+        roundText.text = "Round: " +
+        GameLogic.instance.levelManager.GetRound().ToString();   
+        livesText.text = GameLogic.instance.numLives.ToString();    
     }
 }
