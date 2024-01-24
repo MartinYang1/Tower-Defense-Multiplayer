@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0823119f86a2f0498bcd1c0c28c604b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnTime: 1
+  despawnTime: 5
 --- !u!114 &1215935517701251293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b2c718a32179d4f8fee936de613994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!114 &2304514504837529145
 MonoBehaviour:
   m_ObjectHideFlags: 0

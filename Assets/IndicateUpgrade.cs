@@ -13,6 +13,8 @@ public class TowerLevelText : MonoBehaviour
     private GameObject upgradeCostObject;
     private TextMesh upgradeCostTextMesh;
 
+    
+   
     private void Start()
     {
         // Ensure the text objects are created and initialized
@@ -85,7 +87,7 @@ public class TowerLevelText : MonoBehaviour
         // Set the text to indicate the tower's update count
         textMesh.GetComponent<Renderer>().sortingLayerName = "UI";
         textMesh.GetComponent<Renderer>().sortingOrder = 1;
-        textMesh.text = "LVL: " + updateCount;
+        
 
         // Set the text size
         textMesh.fontSize = Mathf.RoundToInt(textSize * 1000); // Adjust the multiplier as needed
@@ -100,4 +102,9 @@ public class TowerLevelText : MonoBehaviour
         upgradeCostTextMesh.fontSize = Mathf.RoundToInt(textSize * 500); // Adjust the multiplier as needed
         upgradeCostTextMesh.characterSize = 0.01f;
     }
+ 
+    public int GetUpdateCount()
+    {
+        return updateCount;
+    }    
 }
