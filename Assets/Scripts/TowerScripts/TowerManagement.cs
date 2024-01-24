@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
+    AudioManager audioManager;
+
     [System.Serializable]
+
     public class TowerType
     {
         public GameObject prefab;
@@ -39,6 +42,11 @@ public class TowerPlacement : MonoBehaviour
         // Instantiate the default UI prefab
         SetUIPrefab();
     }
+
+    private void Awake()
+        {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
 
     void Update()
     {
@@ -110,9 +118,9 @@ public class TowerPlacement : MonoBehaviour
         if (towerPrefab != null)
         {
             Instantiate(towerPrefab, position, Quaternion.identity);
-            
 
-            // Update the UI prefab based on the tower selection mode
+            audioManager.PlaySFX(audioManager.towerplacement);
+          
             SetUIPrefab();
         }
         else

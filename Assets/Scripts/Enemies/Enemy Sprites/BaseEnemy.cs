@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BaseEnemy : MonoBehaviour
 {
+    AudioManager audioManager;
     [SerializeField] private int currencyReward = 10; // Default base value for money per enemy
     public int CurrencyReward => currencyReward;
     public Transform waypoints;
@@ -25,7 +26,12 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void Awake() {
         health = initialHealth;
     }
-
+    
+    void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+  
     // Moves the enemy continuously
     IEnumerator Move()
     {
@@ -53,7 +59,10 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void EnemyDied()
     {
         // Notify LevelManager to increase currency
+        
         LevelManager.instance.IncreaseCurrency(currencyReward); // Adjust the amount as needed
+        
+
     }
 
     // Getters and setters
@@ -66,6 +75,7 @@ public class BaseEnemy : MonoBehaviour
         this.speed = speed;
     }
 
+    
     /// <summary>
     /// Decrements health from an enemy
     /// </summary>
@@ -78,8 +88,10 @@ public class BaseEnemy : MonoBehaviour
 
         if (this.health <= 0)
         {
+         
             EnemyDied();
             Destroy(gameObject);
+            
         }
     }
 
